@@ -14,6 +14,20 @@
            create a new component and add it to the DOM as a child of .cards
 */
 
+// Step 8 Setup axios to access github user data
+
+const cards = document.querySelector('.cards')
+
+axios.get('https://api.github.com/users/gmgower')
+.then(ghData => {
+  console.log('gmgower Github', ghData)
+  // ghUserCard(ghData.data)
+  cards.appendChild(ghUserCard(ghData.data))
+})
+.catch(error => {
+  console.log('Github user not available.', error)
+})
+
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -24,7 +38,7 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+// const followersArray = [];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -46,11 +60,11 @@ const followersArray = [];
 
 */
 
-// Step 4 Check if elements are appendChild to parent element in DOM
+// Step 4 a. Check if elements are appendChild to parent element in DOM
+          // b. c&p code to use on axios
 
-const cards = document.querySelector('.cards')
-
-cards.appendChild(ghUserCard())
+// const cards = document.querySelector('.cards')
+// cards.appendChild(ghUserCard())
 
 function ghUserCard (ghUserObj){
   // Step 1 define elements
@@ -93,15 +107,14 @@ function ghUserCard (ghUserObj){
   cardProfileLink.href = ('href', 'https://github.com/gmgower')
   // console.log(cardProfileLink)
 
-// Step 7 Setup text content
-cardName.textContent = '"https://avatars2.githubusercontent.com/u/20153709?v=4"' //name
-cardUserName.textContent = 'login'
-cardLocation.textContent = 'Location: '
-cardProfile.textContent = 'Profile: '
-cardFollowers.textContent = 'Followers: ' // followers
-cardFollowing.textContent = 'Following: ' // following
-cardBio.textContent = 'Bio: '// bio
-
+	// Step 7 Setup text content
+  cardName.textContent = '"https://avatars2.githubusercontent.com/u/20153709?v=4"' //name
+  cardUserName.textContent = 'login'
+  cardLocation.textContent = 'Location: '
+  cardProfile.textContent = 'Profile: '
+  cardFollowers.textContent = 'Followers: ' // followers
+  cardFollowing.textContent = 'Following: ' // following
+  cardBio.textContent = 'Bio: '// bio
 
   // Step 2 return card
 
