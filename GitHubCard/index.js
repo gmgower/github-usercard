@@ -46,6 +46,31 @@ const followersArray = [];
 
 */
 
+
+function ghUserCard (ghUserObj){
+  // Step 1 define elements
+  const card = document.createElement('div')
+  const cardImg = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const cardName = document.createElement('h3')
+  const cardUserName = document.createElement('p')
+  const cardLocation = document.createElement('p')
+  const cardProfile = document.createElement('p')
+  const cardProfileLink = document.createElement('a')
+  const cardFollowers = document.createElement('p')
+  const cardFollowing = document.createElement('p')
+  const cardBio = document.createElement('p')
+
+
+
+
+
+
+  // Step 2 return card
+
+  return card
+}
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
