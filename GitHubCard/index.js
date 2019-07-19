@@ -46,6 +46,11 @@ const followersArray = [];
 
 */
 
+// Step 4 Check if elements are appendChild to parent element in DOM
+
+const cards = document.querySelector('.cards')
+
+cards.appendChild(ghUserCard())
 
 function ghUserCard (ghUserObj){
   // Step 1 define elements
