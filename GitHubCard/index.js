@@ -80,8 +80,14 @@ function ghUserCard (ghUserObj){
   cardInfo.appendChild(cardFollowing)
   cardInfo.appendChild(cardBio)
 
+  //Step 5 Setup class name
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  cardName.classList.add('name')
+  cardUserName.classList.add('username')
+  
 
-
+  
 
   // Step 2 return card
 
