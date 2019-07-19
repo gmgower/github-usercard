@@ -61,7 +61,19 @@ function ghUserCard (ghUserObj){
   const cardFollowing = document.createElement('p')
   const cardBio = document.createElement('p')
 
+  // Step 3 Setup structure of elements
+  card.appendChild(cardImg)
+  card.appendChild(cardInfo)
 
+  cardProfile.appendChild(cardProfileLink)
+
+  cardInfo.appendChild(cardName)
+  cardInfo.appendChild(cardUserName)
+  cardInfo.appendChild(cardLocation)
+  cardInfo.appendChild(cardProfile)
+  cardInfo.appendChild(cardFollowers)
+  cardInfo.appendChild(cardFollowing)
+  cardInfo.appendChild(cardBio)
 
 
 
