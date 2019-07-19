@@ -86,8 +86,13 @@ function ghUserCard (ghUserObj){
   cardName.classList.add('name')
   cardUserName.classList.add('username')
   
+   // Step 6 setup attr.
+  cardImg.src = "https://avatars2.githubusercontent.com/u/20153709?v=4"
+  cardImg.alt = 'Github placeholder image.'
+  cardProfileLink.textContent = 'https://github.com/gmgower'
+  cardProfileLink.href = ('href', 'https://github.com/gmgower')
+  // console.log(cardProfileLink)
 
-  
 
   // Step 2 return card
 
