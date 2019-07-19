@@ -14,7 +14,7 @@
            create a new component and add it to the DOM as a child of .cards
 */
 
-// Step 8 Setup axios to access github user data
+//  * Step 8 Setup axios to access github user data
 
 const cards = document.querySelector('.cards')
 
@@ -45,6 +45,8 @@ followersArray.forEach((ghUserNames) => {
   axios.get(`https://api.github.com/users/${ghUserNames}`)
   .then(ghData => {
   cards.appendChild(ghUserCard(ghData.data))
+  }).catch(error => {
+    console.log('Github users not available.', error)
   })
 })
 
@@ -75,7 +77,7 @@ followersArray.forEach((ghUserNames) => {
 // cards.appendChild(ghUserCard())
 
 function ghUserCard (ghUserObj){
-  // Step 1 define elements
+  // * Step 1 define elements
   const card = document.createElement('div')
   const cardImg = document.createElement('img')
   const cardInfo = document.createElement('div')
@@ -88,7 +90,7 @@ function ghUserCard (ghUserObj){
   const cardFollowing = document.createElement('p')
   const cardBio = document.createElement('p')
 
-  // Step 3 Setup structure of elements
+  //  * Step 3 Setup structure of elements
   card.appendChild(cardImg)
   card.appendChild(cardInfo)
 
@@ -102,30 +104,28 @@ function ghUserCard (ghUserObj){
   cardInfo.appendChild(cardFollowing)
   cardInfo.appendChild(cardBio)
 
-  //Step 5 Setup class name
+  // * Step 5 Setup class name
   card.classList.add('card')
   cardInfo.classList.add('card-info')
   cardName.classList.add('name')
   cardUserName.classList.add('username')
   
-   // Step 6 setup attr.
-  cardImg.src = "https://avatars2.githubusercontent.com/u/20153709?v=4"
+   // * Step 6 setup attr.
+  cardImg.src = ghUserObj.avatar_url
   cardImg.alt = 'Github placeholder image.'
-  cardProfileLink.textContent = 'https://github.com/gmgower'
-  cardProfileLink.href = ('href', 'https://github.com/gmgower')
-  // console.log(cardProfileLink)
+  cardProfileLink.textContent = ghUserObj.html_url
+  cardProfileLink.href =  ghUserObj.html_url
 
-// Step 7 Setup text content
+//  * Step 7 Setup text content
 cardName.textContent = ghUserObj.name
-cardUserName.textContent = 'login'
+cardUserName.textContent = ghUserObj.login
 cardLocation.textContent = `Location: ${ghUserObj.location}` 
 cardProfile.textContent = `Profile: ${ghUserObj.url}`
 cardFollowers.textContent = `Followers: ${ghUserObj.followers}` 
 cardFollowing.textContent = `Following: ${ghUserObj.following}`
 cardBio.textContent = `Bio: ${ghUserObj.bio}`
 
-  // Step 2 return card
-
+  // * Step 2 return card
   return card
 }
 
