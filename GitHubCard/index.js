@@ -93,6 +93,15 @@ function ghUserCard (ghUserObj){
   cardProfileLink.href = ('href', 'https://github.com/gmgower')
   // console.log(cardProfileLink)
 
+// Step 7 Setup text content
+cardName.textContent = '"https://avatars2.githubusercontent.com/u/20153709?v=4"' //name
+cardUserName.textContent = 'login'
+cardLocation.textContent = 'Location: '
+cardProfile.textContent = 'Profile: '
+cardFollowers.textContent = 'Followers: ' // followers
+cardFollowing.textContent = 'Following: ' // following
+cardBio.textContent = 'Bio: '// bio
+
 
   // Step 2 return card
 
