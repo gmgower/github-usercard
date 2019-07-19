@@ -38,7 +38,15 @@ axios.get('https://api.github.com/users/gmgower')
           user, and adding that card to the DOM.
 */
 
-// const followersArray = [];
+
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+
+followersArray.forEach((ghUserNames) => {
+  axios.get(`https://api.github.com/users/${ghUserNames}`)
+  .then(ghData => {
+  cards.appendChild(ghUserCard(ghData.data))
+  })
+})
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -107,14 +115,14 @@ function ghUserCard (ghUserObj){
   cardProfileLink.href = ('href', 'https://github.com/gmgower')
   // console.log(cardProfileLink)
 
-	// Step 7 Setup text content
-  cardName.textContent = '"https://avatars2.githubusercontent.com/u/20153709?v=4"' //name
-  cardUserName.textContent = 'login'
-  cardLocation.textContent = 'Location: '
-  cardProfile.textContent = 'Profile: '
-  cardFollowers.textContent = 'Followers: ' // followers
-  cardFollowing.textContent = 'Following: ' // following
-  cardBio.textContent = 'Bio: '// bio
+// Step 7 Setup text content
+cardName.textContent = ghUserObj.name
+cardUserName.textContent = 'login'
+cardLocation.textContent = `Location: ${ghUserObj.location}` 
+cardProfile.textContent = `Profile: ${ghUserObj.url}`
+cardFollowers.textContent = `Followers: ${ghUserObj.followers}` 
+cardFollowing.textContent = `Following: ${ghUserObj.following}`
+cardBio.textContent = `Bio: ${ghUserObj.bio}`
 
   // Step 2 return card
 
